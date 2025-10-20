@@ -1,16 +1,17 @@
 # .github/workflows/deploy.yml
-name: Deploy to GitHub Pages
+name: Deployment Pipeline (Mock Deploy)
 
 on:
   push:
     branches: [ main ]
+  workflow_dispatch:
 
 jobs:
-  build-deploy:
+  mock-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -21,11 +22,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build site
-        run: npm run build || echo "No build step defined"
+      - name: Build application
+        run: npm run build || echo "No build script found"
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist    # change to your build output folder if different
+      - name: Simulate Deployment
+        run: |
+          echo "🚀 Starting deployment process..."
+          echo "Uploading files to production server (simulated)"
+          echo "✅ Deployment Successful!"
