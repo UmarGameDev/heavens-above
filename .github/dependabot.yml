@@ -1,0 +1,10 @@
+# .github/dependabot.yml
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"         # Root folder of the project
+    schedule:
+      interval: "weekly"   # Can be daily, weekly, monthly
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
