@@ -1,0 +1,22 @@
+# .github/workflows/scheduled-tasks.yml
+name: Scheduled Maintenance Task
+
+on:
+  schedule:
+    - cron: '0 2 * * *'  # Runs every day at 2:00 AM UTC
+  workflow_dispatch:      # Allows manual trigger
+
+jobs:
+  daily-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start Maintenance
+        run: |
+          echo "🛠 Starting daily maintenance..."
+          echo "📅 Date: $(date)"
+          echo "🗂 Cleaning logs or checking updates (simulation)"
+          echo "✅ Maintenance completed!"
